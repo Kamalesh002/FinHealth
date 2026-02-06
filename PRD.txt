@@ -1,0 +1,303 @@
+
+
+## **PRD Generation Prompt (Final – Judge-Optimized)**
+
+> **Role & Context**
+> You are a **Senior Product Manager and FinTech Solutions Architect** building a production-grade AI platform for Small and Medium Enterprises (SMEs), with a strong focus on explainability, security, and usability for non-finance business owners.
+>
+> **Task**
+> Create a **detailed, implementation-ready Product Requirements Document (PRD)** for a hackathon submission. The PRD must demonstrate **clear product thinking, technical feasibility, AI responsibility, and strong user empathy**.
+>
+> **Problem Statement**
+> Design a **Financial Health Assessment Platform for SMEs** that leverages AI to analyze financial statements, cash flow patterns, and operational metrics to deliver **actionable insights**.
+>
+> The platform must:
+>
+> * Assess financial health and creditworthiness
+> * Identify financial and cash-flow risks
+> * Recommend cost-optimization strategies
+> * Suggest suitable financial products from Banks and NBFCs
+>
+> **Advanced Capabilities**
+>
+> * Automated bookkeeping assistance
+> * Tax compliance and GST validation
+> * Financial forecasting and projections
+> * Working capital optimization
+> * Integration with GST returns and up to **2 banking/payment APIs**
+> * Industry-specific benchmarking
+> * Investor-ready financial reports
+> * Multilingual output (English + Hindi/Regional languages)
+>
+> **Data Inputs**
+>
+> * File uploads: CSV, XLSX, PDF (text-based)
+> * Optional API integrations:
+>
+>   * Banking/payment APIs (max 2)
+>   * GST filing data
+>
+> **Data Dimensions**
+>
+> * Revenue streams
+> * Cost structures and expense categories
+> * Accounts receivable and payable
+> * Inventory levels (if applicable)
+> * Loan and credit obligations
+> * Tax deductions and compliance metadata
+>
+> **Industry Coverage**
+> Manufacturing, Retail, Agriculture, Services, Logistics, E-commerce.
+>
+> The data model should be **polymorphic**: metrics and priorities adapt based on selected industry (e.g., seasonal cycles for Agriculture, inventory turnover for Retail).
+>
+> **AI & Computation Constraints**
+>
+> * Use a **Hybrid Logic Model**:
+>
+>   * Python (pandas) performs all financial calculations and scoring
+>   * LLM (OpenAI GPT-5 or Claude) provides interpretation, risk explanation, recommendations, and natural-language responses
+> * LLMs must not perform raw financial calculations
+>
+> **User Experience Requirements**
+>
+> * Primary persona: **Non-finance SME owners**
+> * Support **natural language querying**, e.g., “Can I afford to hire next month?”
+> * Focus on clarity, plain language, and visual storytelling
+>
+> **Technology & Tooling Constraints**
+>
+> * LLM: OpenAI GPT-5 or Claude
+> * Data processing: Python (pandas)
+> * Frontend: React.js or Angular
+> * Database: PostgreSQL
+> * Security:
+>
+>   * AES-256 encryption for data at rest
+>   * TLS 1.3 for data in transit
+>
+> **PRD Structure**
+>
+> 1. Product Overview & Vision
+> 2. Problem Breakdown & User Pain Points
+> 3. Target Users & Personas
+> 4. User Journeys & Key Use Cases
+> 5. Functional Requirements (Core & Advanced)
+> 6. Financial Health Score & Hybrid AI Logic
+> 7. Non-Functional Requirements (Security, Performance, Compliance)
+> 8. System Architecture (High-Level, Layered)
+> 9. Data Flow & Integrations
+> 10. UX Principles & Visualization Strategy
+> 11. MVP Scope vs Future Enhancements
+> 12. Success Metrics & KPIs
+> 13. Risks, Assumptions & Mitigations
+>
+> **Tone & Output**
+>
+> * Clear, concise, professional
+> * Hackathon-optimized (impact + feasibility)
+> * Use bullet points and structured sections
+> * Avoid unnecessary jargon
+
+---
+
+# 🏗️ PART 2: GENERATED PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
+---
+
+## 1. Product Overview & Vision
+
+The **Financial Health Assessment Platform** empowers SMEs with **AI-driven financial clarity**, enabling informed decision-making without requiring financial expertise.
+The product acts as a **virtual CFO for SMEs**, translating complex financial data into **simple, actionable insights**.
+
+**Vision:**
+To democratize financial intelligence for SMEs and improve their access to credit, operational efficiency, and long-term sustainability.
+
+---
+
+## 2. Problem Breakdown & User Pain Points
+
+### Key Challenges Faced by SMEs
+
+* Limited financial literacy among business owners
+* Fragmented financial data across spreadsheets, GST filings, and bank statements
+* Poor cash-flow visibility and delayed risk detection
+* Difficulty accessing appropriate financial products
+* Manual bookkeeping and compliance errors
+
+---
+
+## 3. Target Users & Personas
+
+### Primary Persona: Non-Finance SME Owner
+
+* Owns or operates a small business
+* Relies on accountants for compliance, not insights
+* Needs **plain-language answers**, not accounting jargon
+
+### Secondary Personas
+
+* Startup founders seeking investor readiness
+* SME lenders evaluating creditworthiness
+* Accountants and financial advisors
+
+---
+
+## 4. User Journeys & Key Use Cases
+
+1. **Upload financial documents** or connect bank/GST data
+2. **Select industry type** (Retail, Agriculture, Manufacturing, etc.)
+3. View:
+
+   * Financial Health Score
+   * Cash runway
+   * Risk indicators
+4. Ask questions in natural language:
+
+   * “Why is my cash balance declining?”
+   * “Can I afford to expand next quarter?”
+5. Receive:
+
+   * Actionable recommendations
+   * Product suggestions
+   * Investor-ready reports
+
+---
+
+## 5. Functional Requirements
+
+### Core Features
+
+* Financial data ingestion (CSV, XLSX, PDF)
+* Automated categorization of income and expenses
+* Financial ratio analysis
+* Creditworthiness assessment
+* Risk flagging (liquidity, leverage, compliance)
+
+### Advanced Features
+
+* Bookkeeping assistance
+* GST compliance validation
+* Forecasting & projections
+* Working capital optimization
+* Industry benchmarking
+* Multilingual output
+
+---
+
+## 6. Financial Health Score & Hybrid AI Logic
+
+### Hybrid Computation Model
+
+* **Python (pandas):**
+
+  * Liquidity ratios
+  * Profitability metrics
+  * Cash runway
+  * Working capital cycle
+  * Composite Financial Health Score
+* **LLM (GPT-5 / Claude):**
+
+  * Explains score drivers
+  * Highlights risks
+  * Provides recommendations
+  * Answers natural language queries
+
+This ensures **accuracy, explainability, and AI safety**.
+
+---
+
+## 7. Non-Functional Requirements
+
+### Security & Compliance
+
+* AES-256 encryption for data at rest
+* TLS 1.3 for data in transit
+* Role-based access control
+* Audit logs for financial actions
+
+### Performance & Scalability
+
+* Handle concurrent SME uploads
+* Modular architecture for adding industries and APIs
+
+---
+
+## 8. System Architecture (High-Level)
+
+### Layered Architecture
+
+* **Ingestion Layer:**
+  Pandas-based pipelines for CSV/XLSX/PDF ingestion
+* **Intelligence Layer:**
+  Financial computation + LLM orchestration
+* **Application Layer:**
+  React/Angular frontend
+* **Data Layer:**
+  PostgreSQL (encrypted)
+* **Security Layer:**
+  Encryption, access control, compliance
+
+---
+
+## 9. Data Flow & Integrations
+
+1. User uploads data / connects APIs
+2. Data normalized and stored securely
+3. Financial metrics computed
+4. LLM generates insights and explanations
+5. Results visualized and narrated
+
+---
+
+## 10. UX Principles & Visualization Strategy
+
+* Plain-language explanations
+* Visual summaries (traffic-light risk indicators)
+* Natural language Q&A interface
+* Industry-specific dashboards
+* Minimal financial jargon
+
+---
+
+## 11. MVP Scope vs Future Enhancements
+
+### MVP
+
+* Financial Health Score
+* Risk insights
+* Industry benchmarking
+* Natural language queries
+* Multilingual support
+
+### Future Enhancements
+
+* Automated loan applications
+* Predictive alerts
+* Accountant collaboration tools
+* Deeper regulatory automation
+
+---
+
+## 12. Success Metrics & KPIs
+
+* User onboarding completion rate
+* Insight engagement rate
+* Reduction in cash-flow risk incidents
+* SME credit approval improvement
+* Judge evaluation scores 😄
+
+---
+
+## 13. Risks, Assumptions & Mitigations
+
+| Risk              | Mitigation                         |
+| ----------------- | ---------------------------------- |
+| AI hallucinations | Hybrid computation model           |
+| Poor data quality | Validation and error flags         |
+| User confusion    | Plain-language UX                  |
+| Security concerns | Strong encryption & access control |
+
+---
+
+
