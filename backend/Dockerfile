@@ -1,4 +1,4 @@
-# Backend Dockerfile
+# Backend Dockerfile for Railway
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -16,8 +16,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Expose port
-EXPOSE 8000
+# Railway uses PORT env variable
+ENV PORT=8000
 
-# Run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Expose port (optional, Railway handles this)
+EXPOSE ${PORT}
+
+# Run the application using shell form to expand $PORT
+CMD uvicorn main:app --host 0.0.0.0 --port ${PORT}
