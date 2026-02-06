@@ -16,14 +16,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Make startup script executable
-RUN chmod +x start.sh
-
-# Default port
+# Default port (Railway will override with PORT env var)
 ENV PORT=8000
 
 # Expose port
 EXPOSE 8000
 
-# Use startup script
-ENTRYPOINT ["./start.sh"]
+# Use Python script to start - this handles PORT properly
+CMD ["python", "run.py"]
