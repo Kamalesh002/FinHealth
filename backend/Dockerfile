@@ -16,11 +16,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Default port (Railway will override with PORT env var)
+# Make startup script executable
+RUN chmod +x start.sh
+
+# Default port
 ENV PORT=8000
 
 # Expose port
 EXPOSE 8000
 
-# Use shell explicitly to expand $PORT variable
-CMD ["/bin/sh", "-c", "uvicorn main:app --host 0.0.0.0 --port $PORT"]
+# Use startup script
+ENTRYPOINT ["./start.sh"]
